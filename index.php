@@ -16,7 +16,13 @@
     <div id="app">
         <div class="container">
         <h1>{{title}}</h1>
-
+        <ul class="list-unstyled">
+            <li v-for="(item, index) in items" :class="item.completed ? 'completed' : ''">{{item.item}}</li>
+        </ul>
+        <div>
+            <input @keyup.enter="addItem" type="text" placeholder="Inserisci un nuovo item" v-model="newTask">
+            <button @click="addItem">Invia</button>
+        </div>
         </div>
     </div>
     <script type="text/javascript" src="./script.js"></script>
