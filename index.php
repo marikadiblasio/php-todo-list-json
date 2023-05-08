@@ -14,8 +14,11 @@
 </head>
 <body>
     <div id="app">
+        <div class="container">
         <h1>{{title}}</h1>
+
+        </div>
     </div>
-    <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
 </body>
 </html>

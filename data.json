@@ -1,0 +1,14 @@
+[
+    {
+        "item": "fare la spesa",
+        "completed": false
+    },
+    {
+        "item": "comprare il latte",
+        "completed": false
+    },
+    {
+        "item": "completare",
+        "completed": false
+    }
+]
