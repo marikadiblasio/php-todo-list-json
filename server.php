@@ -11,5 +11,10 @@ if(isset($_POST['item'])){
     array_push($phpItems, $newItem);
     file_put_contents('./data.json', json_encode($phpItems));
 }
+if(isset($_POST['completed']) && (isset($_POST['index']))) {
+    $completed = $_POST['completed'];
+    $index = $_POST['index'];
+    $phpItems[$index]['completed'] = $completed;
+}
 header('Content-Type: application/json');
 echo json_encode($phpItems);

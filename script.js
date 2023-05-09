@@ -29,9 +29,19 @@ createApp(
                 } }).then((res) => {
                     console.log(res);
                     this.items.push(data);
-                    console.log(this.items);
                     this.newTask= '';
                 })
+            },
+            crossItem(item, index){
+                const data= {
+                    completed: item.completed = !item.completed,
+                    index: index
+                };
+                axios.post(this.apiUrl, data, { headers : {
+                    'Content-Type': 'multipart/form-data'
+                } }).then((res) => {
+                    console.log(res);
+                } );
             }
         },
         mounted(){

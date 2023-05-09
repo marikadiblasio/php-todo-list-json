@@ -4,6 +4,7 @@
 ul {
     list-style: circle;
     font-size: 1.3rem;
+    cursor: pointer;
 }
 .dark-info{
     color: #045363;

@@ -24,7 +24,7 @@
                 Cancella i task dopo averli completati!
             </h3>
             <ul class="mt-5 overflow-y-auto h-75 my-auto">
-                <li v-for="(item, index) in items" @click="item.completed = !item.completed" :class="item.completed ? 'completed' : ''">
+                <li class="my-2" v-for="(item, index) in items" @click="crossItem(item, index)" :key="index" :class="item.completed ? 'completed' : ''">
                     {{item.item}}
                 </li>
             </ul>
