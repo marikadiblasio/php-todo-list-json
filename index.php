@@ -14,15 +14,33 @@
 </head>
 <body>
     <div id="app">
-        <div class="container">
-        <h1>{{title}}</h1>
-        <ul class="list-unstyled">
-            <li v-for="(item, index) in items" :class="item.completed ? 'completed' : ''">{{item.item}}</li>
-        </ul>
-        <div>
-            <input @keyup.enter="addItem" type="text" placeholder="Inserisci un nuovo item" v-model="newTask">
-            <button @click="addItem">Invia</button>
-        </div>
+        <div class="wrapper">
+        <header class="bg-info-subtle dark-info">
+            <h1>{{title}}</h1>
+        </header>
+        <main class="py-5">
+            <div class="w-50 mx-auto h-75">
+            <h3 class="dark-info">
+                Cancella i task dopo averli completati!
+            </h3>
+            <ul class="mt-5 overflow-y-auto h-75 my-auto">
+                <li v-for="(item, index) in items" @click="item.completed = !item.completed" :class="item.completed ? 'completed' : ''">
+                    {{item.item}}
+                </li>
+            </ul>
+            </div>
+            <div class="w-50 mx-auto py-5 input-group">
+                <h3 class="dark-info text-center mb-5 w-100">
+                    Inserisci un nuovo task
+                </h3>
+                <input @keyup.enter="addItem" class="form-control" type="text" placeholder="Inserisci un nuovo item" v-model="newTask">
+                <button @click="addItem" class="btn btn-outline-info">Invia</button>
+            </div>
+        </main>
+        
+        <footer class="bg-info-subtle dark-info">
+            <span>Made with &hearts; by Boolean</span>
+        </footer>
         </div>
     </div>
     <script type="text/javascript" src="./script.js"></script>
