@@ -15,30 +15,32 @@
 <body>
     <div id="app">
         <div class="wrapper">
-        <header class="bg-info-subtle dark-info">
-            <h1>{{title}}</h1>
-        </header>
-        <main class="py-5">
-            <div class="w-50 mx-auto h-75">
-            <h3 class="dark-info">
-                Cancella i task dopo averli completati!
-            </h3>
-            <ul class="mt-5 overflow-y-auto h-75 my-auto">
-                <li class="my-2" v-for="(item, index) in items" @click="crossItem(item, index)" :key="index" :class="item.completed ? 'completed' : ''">
-                    {{item.item}}
-                </li>
-            </ul>
-            </div>
-            <div class="w-50 mx-auto py-5 input-group">
-                <h3 class="dark-info text-center mb-5 w-100">
-                    Inserisci un nuovo task
-                </h3>
-                <input @keyup.enter="addItem" class="form-control" type="text" placeholder="Inserisci un nuovo item" v-model="newTask">
-                <button @click="addItem" class="btn btn-outline-info">Invia</button>
-            </div>
-        </main>
-        
-        <footer class="bg-info-subtle dark-info">
+            <header class="bg-info-subtle dark-info">
+                <h1>{{title}}</h1>
+            </header>
+            <main class="py-5">
+                <div class="w-50 mx-auto h-75">
+                    <h3 class="dark-info">
+                        Cancella i task dopo averli completati!
+                    </h3>
+                    <ul class="mt-5 overflow-y-auto h-75 my-auto">
+                        <li v-for="(item, index) in items" :key="index" :class="(index % 2 === 0) ? '' : 'bg-info-subtle'" class="d-flex justify-content-between align-items-center">
+                            <span class="my-2"  @click="crossItem(item, index)"  :class="item.completed ? 'completed' : ''">
+                                {{item.item}}
+                            </span>
+                            <span class="dark-info" @click="deleteTask(index)"><i class="fa solid fa-trash"></i></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-50 mx-auto py-5 input-group">
+                    <h3 class="dark-info text-center mb-5 w-100">
+                        Inserisci un nuovo task
+                    </h3>
+                    <input @keyup.enter="addItem" class="form-control" type="text" placeholder="Inserisci un nuovo item" v-model="newTask">
+                    <button @click="addItem" class="btn btn-outline-info">Invia</button>
+                </div>
+            </main>
+            <footer class="bg-info-subtle dark-info">
             <span>Made with &hearts; by Boolean</span>
         </footer>
         </div>

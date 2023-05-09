@@ -42,6 +42,17 @@ createApp(
                 } }).then((res) => {
                     console.log(res);
                 } );
+            },
+            deleteTask(index){
+                const data = {
+                    deleteItem: index
+                };
+                axios.post(this.apiUrl, data, { headers : {
+                    'Content-Type': 'multipart/form-data'
+                } }).then((res) => {
+                    console.log(res);
+                    this.items = res.data;
+                } );
             }
         },
         mounted(){
